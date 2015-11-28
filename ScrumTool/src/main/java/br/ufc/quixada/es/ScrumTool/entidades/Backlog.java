@@ -3,6 +3,7 @@ package br.ufc.quixada.es.ScrumTool.entidades;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -22,8 +23,8 @@ public class Backlog {
 	@ManyToOne
 	private Pessoa pessoa;
 	private Integer esforco;
+	@Enumerated
 	private Estado estado;
-
 	public Long getId() {
 		return id;
 	}
@@ -72,7 +73,7 @@ public class Backlog {
 		this.titulo = titulo;
 	}
 
-	public List<T> getTags() {
+	public List<Tag> getTags() {
 		return tags;
 	}
 
