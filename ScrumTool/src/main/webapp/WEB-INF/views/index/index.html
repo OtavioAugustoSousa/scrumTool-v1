@@ -14,7 +14,7 @@
 		<script src="../../../resources/js/DataManager/Repository/localDao.js" th:src="@{/resources/js/DataManager/Repository/localDao.js}" ></script>       
 		<script src="../../../resources/js/DataManager/Repository/backlogDAO.js" th:src="@{/resources/js/DataManager/Repository/backlogDAO.js}" ></script>
         <script src="../../../resources/js/DataManager/dataController.js" th:src="@{/resources/js/DataManager/dataController.js}" ></script>
-        
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
     </head>
     <body ng-controller="dataController">
@@ -36,15 +36,15 @@
                 </div>
             </nav>
         </header>
-        <div class="row ">
+        <div class="kanban row ">
             <div class="col-lg-12">
 
                 <!--Estoria BEGIN-->
 
-                <div class="col-lg-4 borda-right">
+                <div class="col-lg-4 borda-right" dropzone="move">
                     <h3 class="text-center title todo">TODO  <span class="glyphicon glyphicon-plus" ></span></h3>
 
-                    <div class="estoria todo" ng-repeat="row in rows">
+                    <div class="estoria todo" draggable="true" ng-repeat="row in rows">
                       <div class="item-menu">
                             <span class="glyphicon glyphicon-eye-open" ></span>
                             <span class="glyphicon glyphicon-remove"></span>
@@ -65,7 +65,7 @@
                     <!-- FIM -->
 
                 </div>
-                <div class="col-lg-4 borda-right">
+                <div class="col-lg-4 borda-right" dropzone="move">
                     <h3 class="text-center title doing">DOING <span class="glyphicon glyphicon-plus" ></span></h3>
                     <!--Estoria BEGIN-->
                     <div class="estoria doing">
@@ -103,7 +103,7 @@
                     </div>
                     <!-- FIM -->
                 </div>
-                <div class="col-lg-4"><!--Estoria BEGIN-->
+                <div class="col-lg-4" dropzone="move"><!--Estoria BEGIN-->
                     <h3 class="text-center title done">DONE <span class="glyphicon glyphicon-plus" ></span></h3>
                     <div class="estoria done">
                         <div class="item-menu">

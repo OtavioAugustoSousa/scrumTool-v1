@@ -1,3 +1,5 @@
+//FIXME Fazer o armazenamento no indexBD
+
 (function(angular){
     'use strict';
     //EstruturaBase para um controller

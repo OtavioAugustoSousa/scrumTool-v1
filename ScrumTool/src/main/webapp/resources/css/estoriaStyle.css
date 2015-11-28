@@ -8,12 +8,13 @@ html{
 body{
     margin: 0;
     padding: 0;
+    background-color: #EBEBEB;
 }
 hgroup{
     position: relative;
     width: 100%;
     height: 75px;
-    background-color: #2196F3;
+    background-color: rgb(128, 216, 255);
     font-family: 'Oswald', sans-serif !important;
     margin: 0;
     color: #FFFFFF;
@@ -27,17 +28,26 @@ header > hgroup > h1 , h2{
     display: inline-block;
 }
 .navbar{
-    background-color: #2196F3;
+    background-color: rgb(128, 216, 255);
     width: 100%;
     padding: 0px;
 }
+.navbar a{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16pt;
+    color: white;
+}
+ .navbar-nav > li > a:hover,
+ .navbar-nav > li > a:focus {
+    background-color: rgb(54, 124, 155);
+}
+
 .estoria{
     display: inline-block;
     width: 49%;
     height: 300px;
     margin-bottom:10px;
     padding: 25px;
-    color: rgb(255, 255, 255);
     overflow: hidden;
 }
 
@@ -85,29 +95,23 @@ header > hgroup > h1 , h2{
     width: 40px;
 }
 footer{
-    position: fixed;
+    position: relative;
     bottom: 0px;
     height: 40px;
     text-align: center;
     width: 100%;
-    background: #2196F3;
+    background: rgb(128, 216, 255);
     padding-top: 10px;
+    color:white;
 }
-.todo{
-     background-color: #f44336;
-    margin-left: 4px;
+footer .h6{
+margin: 0px;
 }
+
 .title{
     height: 42px;
     position: relative;
     padding-top: 10px;
-    color: #fff;
-}
-.doing{
-     background-color: #2196f3;
-}
-.done{
-    background-color: #4caf50;
 }
 .title > span{
     display: inline-block;
@@ -115,6 +119,32 @@ footer{
     font-size: 15px;
     margin-right: 10px;
 }
+.todo{
+     background-color: rgb(255, 138, 128);
+     margin-left: 4px;
+}
+.doing{
+     background-color: rgb(255, 255, 141);
+}
+.done{
+    background-color: rgb(204, 255, 144);
+}
+
 .borda-right{
     border-right: #999 dashed 2px;
+}
+.kanban{
+    min-height: 471px;
+    max-width: 100%;
+    margin-left: 0px;
+    color: rgba(0,0,0,0.5);
+    font-family: 'Roboto', sans-serif;
+}
+.kanban dd{
+    font-size: 14pt;
+
+}
+.kanban dl{
+    font-size: 13pt;
+
 }
