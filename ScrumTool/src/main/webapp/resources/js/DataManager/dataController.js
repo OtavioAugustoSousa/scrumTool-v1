@@ -12,7 +12,7 @@
             }
         }
         init();
-        scrumTool.webdb.addItem([1, "Como", "Quero","Para","titulo", "tag", 1, 1,"estado"]);
+        scrumTool.webdb.addItem([1, "Como", "Quero","Para","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquam faucibus quam, nec faucibus quam.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquam faucibus quam, nec faucibus quam.", "tag", 1, 1,"estado"]);
         $scope.rows=[];
         scrumTool.webdb.getAllItems(render);
         console.log($scope.rows);

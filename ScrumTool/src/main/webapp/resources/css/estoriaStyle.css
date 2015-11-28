@@ -9,11 +9,12 @@ body{
     margin: 0;
     padding: 0;
     background-color: #EBEBEB;
+    font-size: 13px;
 }
 hgroup{
     position: relative;
     width: 100%;
-    height: 75px;
+    height: 67px;
     background-color: rgb(128, 216, 255);
     font-family: 'Oswald', sans-serif !important;
     margin: 0;
@@ -22,7 +23,6 @@ hgroup{
     margin-top: 0px;
     position: relative;
     padding-left: 100px;
-    padding-top: 15px;
 }
 header > hgroup > h1 , h2{
     display: inline-block;
@@ -34,26 +34,61 @@ header > hgroup > h1 , h2{
 }
 .navbar a{
     font-family: 'Roboto', sans-serif;
-    font-size: 16pt;
+    font-size: 14pt;
     color: white;
 }
  .navbar-nav > li > a:hover,
  .navbar-nav > li > a:focus {
-    background-color: rgb(54, 124, 155);
+    background-color:  #3BAFDA;
 }
 
 .estoria{
     display: inline-block;
     width: 49%;
-    height: 300px;
+    height: 210px;
+    overflow: hidden;
     margin-bottom:10px;
-    padding: 25px;
+
+}
+.estoria-head{
+    width: 100%;
+    padding: 5px 15px 5px 15px;
+    color: white;
+    max-height: 50px;
+}
+.estoria-head > p{
+    box-sizing: border-box;
+    margin: 0px;
+    position: relative;
+
+}
+.estoria-head > h4{
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    bottom: 9px;
+}
+.todo > .estoria-head {
+    background-color: #EB574B;
+}
+.doing > .estoria-head {
+    background-color: #FFAE0A;
+}
+.done > .estoria-head {
+    background-color: #8CC152;
+}
+.estoria-body{
+    padding: 10px 20px;
     overflow: hidden;
 }
-
+.estoria-body > p{
+    margin: 0px;
+}
 .item-titulo{
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bolder;
 }
 .item-menu{
@@ -109,14 +144,15 @@ margin: 0px;
 }
 
 .title{
-    height: 42px;
+    height: 30px;
     position: relative;
-    padding-top: 10px;
+    padding-top: 4px;
 }
 .title > span{
     display: inline-block;
     float: right;
-    font-size: 15px;
+    font-size: 13px;
+    margin-top: 2px;
     margin-right: 10px;
 }
 .todo{
@@ -141,10 +177,10 @@ margin: 0px;
     font-family: 'Roboto', sans-serif;
 }
 .kanban dd{
-    font-size: 14pt;
+    font-size: 10pt;
 
 }
 .kanban dl{
-    font-size: 13pt;
-
+    font-size: 10pt;
+    margin-bottom: 0px;
 }

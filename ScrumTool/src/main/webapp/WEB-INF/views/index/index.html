@@ -18,24 +18,7 @@
 
     </head>
     <body ng-controller="dataController">
-        <header>
-            <hgroup>
-                <h1 class="page-titulo">SCRUMTool </h1>
-                <h2> for Angile projects </h2>
-            </hgroup>
-            <nav class="navbar">
-                <div class="container-fluid">
-                    <div>
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">Home</a></li>
-                            <li><a href="#">Projetos</a></li>
-                            <li><a href="#">Sprints</a></li>
-                            <li><a href="#">Charts</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
+    <ng-include src="'../partials/header.html'"></ng-include>
         <div class="kanban row ">
             <div class="col-lg-12">
 
@@ -45,14 +28,16 @@
                     <h3 class="text-center title todo">TODO  <span class="glyphicon glyphicon-plus" ></span></h3>
 
                     <div class="estoria todo" draggable="true" ng-repeat="row in rows">
-                      <div class="item-menu">
+                      <div class="estoria-head">
+                        <div class="item-menu">
                             <span class="glyphicon glyphicon-eye-open" ></span>
                             <span class="glyphicon glyphicon-remove"></span>
                             <span class="glyphicon glyphicon-move"></span>
                         </div>
-                        
                         <p>ID:{{row.id}}</p>
                         <h4 class="item-titulo">{{row.titulo}}</h4>
+                      </div>
+                        <div class="estoria-body">
                         <dl>
                             <dt>COMO:</dt> <dd>{{row.Como}}</dd>
                             <dt>QUERO:</dt><dd>{{row.Quero}}</dd>
@@ -60,7 +45,7 @@
                         </dl>
                         <p>Esforço: {{row.esforco}}</p>
                         <p>Assing: <a>Otávio Augusto</a></p>
-
+                        </div>
                     </div>
                     <!-- FIM -->
 
@@ -69,6 +54,7 @@
                     <h3 class="text-center title doing">DOING <span class="glyphicon glyphicon-plus" ></span></h3>
                     <!--Estoria BEGIN-->
                     <div class="estoria doing">
+                        <div class="estoria-head">
                         <div class="item-menu">
                             <span class="glyphicon glyphicon-eye-open" ></span>
                             <span class="glyphicon glyphicon-remove"></span>
@@ -76,6 +62,8 @@
                         </div>
                         <p>ID</p>
                         <h4 class="item-titulo">Desenvolvimento do menu de opções</h4>
+                            </div>
+                        <div class="estoria-body">
                         <dl>
                             <dt>COMO:</dt> <dd>DBA</dd>
                             <dt>QUERO:</dt><dd>Buscar Todos os usuário pela IDADE</dd>
@@ -83,9 +71,85 @@
                         </dl>
                         <p>Esforço: 5</p>
                         <p>Assing: <a>Otávio Augusto</a></p>               
-                    </div>
+                    </div></div>
                     <!-- FIM --><!--Estoria BEGIN-->
                     <div class="estoria doing">
+                        <div class="estoria-head">
+                            <div class="item-menu">
+                                <span class="glyphicon glyphicon-eye-open" ></span>
+                                <span class="glyphicon glyphicon-remove"></span>
+                                <span class="glyphicon glyphicon-move"></span>
+                            </div>
+                            <p>ID</p>
+                            <h4 class="item-titulo">Desenvolvimento do menu de opções</h4>
+                        </div>
+                        <div class="estoria-body">
+                            <dl>
+                                <dt>COMO:</dt> <dd>DBA</dd>
+                                <dt>QUERO:</dt><dd>Buscar Todos os usuário pela IDADE</dd>
+                                <dt>PARA:</dt><dd>Saber o perfil dos usuários   </dd>
+                            </dl>
+                            <p>Esforço: 5</p>
+                            <p>Assing: <a>Otávio Augusto</a></p>
+                        </div></div>
+                    <div class="estoria doing">
+                        <div class="estoria-head">
+                            <div class="item-menu">
+                                <span class="glyphicon glyphicon-eye-open" ></span>
+                                <span class="glyphicon glyphicon-remove"></span>
+                                <span class="glyphicon glyphicon-move"></span>
+                            </div>
+                            <p>ID</p>
+                            <h4 class="item-titulo">Desenvolvimento do menu de opções</h4>
+                        </div>
+                        <div class="estoria-body">
+                            <dl>
+                                <dt>COMO:</dt> <dd>DBA</dd>
+                                <dt>QUERO:</dt><dd>Buscar Todos os usuário pela IDADE</dd>
+                                <dt>PARA:</dt><dd>Saber o perfil dos usuários   </dd>
+                            </dl>
+                            <p>Esforço: 5</p>
+                            <p>Assing: <a>Otávio Augusto</a></p>
+                        </div></div>
+                    <div class="estoria doing">
+                        <div class="estoria-head">
+                            <div class="item-menu">
+                                <span class="glyphicon glyphicon-eye-open" ></span>
+                                <span class="glyphicon glyphicon-remove"></span>
+                                <span class="glyphicon glyphicon-move"></span>
+                            </div>
+                            <p>ID</p>
+                            <h4 class="item-titulo">Desenvolvimento do menu de opções</h4>
+                        </div>
+                        <div class="estoria-body">
+                            <dl>
+                                <dt>COMO:</dt> <dd>DBA</dd>
+                                <dt>QUERO:</dt><dd>Buscar Todos os usuário pela IDADE</dd>
+                                <dt>PARA:</dt><dd>Saber o perfil dos usuários   </dd>
+                            </dl>
+                            <p>Esforço: 5</p>
+                            <p>Assing: <a>Otávio Augusto</a></p>
+                        </div></div>
+                    <div class="estoria doing">
+                        <div class="estoria-head">
+                            <div class="item-menu">
+                                <span class="glyphicon glyphicon-eye-open" ></span>
+                                <span class="glyphicon glyphicon-remove"></span>
+                                <span class="glyphicon glyphicon-move"></span>
+                            </div>
+                            <p>ID</p>
+                            <h4 class="item-titulo">Desenvolvimento do menu de opções</h4>
+                        </div>
+                        <div class="estoria-body">
+                            <dl>
+                                <dt>COMO:</dt> <dd>DBA</dd>
+                                <dt>QUERO:</dt><dd>Buscar Todos os usuário pela IDADE</dd>
+                                <dt>PARA:</dt><dd>Saber o perfil dos usuários   </dd>
+                            </dl>
+                            <p>Esforço: 5</p>
+                            <p>Assing: <a>Otávio Augusto</a></p>
+                        </div></div>  <div class="estoria doing">
+                    <div class="estoria-head">
                         <div class="item-menu">
                             <span class="glyphicon glyphicon-eye-open" ></span>
                             <span class="glyphicon glyphicon-remove"></span>
@@ -93,6 +157,8 @@
                         </div>
                         <p>ID</p>
                         <h4 class="item-titulo">Desenvolvimento do menu de opções</h4>
+                    </div>
+                    <div class="estoria-body">
                         <dl>
                             <dt>COMO:</dt> <dd>DBA</dd>
                             <dt>QUERO:</dt><dd>Buscar Todos os usuário pela IDADE</dd>
@@ -100,12 +166,88 @@
                         </dl>
                         <p>Esforço: 5</p>
                         <p>Assing: <a>Otávio Augusto</a></p>
+                    </div></div>  <div class="estoria doing">
+                    <div class="estoria-head">
+                        <div class="item-menu">
+                            <span class="glyphicon glyphicon-eye-open" ></span>
+                            <span class="glyphicon glyphicon-remove"></span>
+                            <span class="glyphicon glyphicon-move"></span>
+                        </div>
+                        <p>ID</p>
+                        <h4 class="item-titulo">Desenvolvimento do menu de opções</h4>
                     </div>
+                    <div class="estoria-body">
+                        <dl>
+                            <dt>COMO:</dt> <dd>DBA</dd>
+                            <dt>QUERO:</dt><dd>Buscar Todos os usuário pela IDADE</dd>
+                            <dt>PARA:</dt><dd>Saber o perfil dos usuários   </dd>
+                        </dl>
+                        <p>Esforço: 5</p>
+                        <p>Assing: <a>Otávio Augusto</a></p>
+                    </div></div>  <div class="estoria doing">
+                    <div class="estoria-head">
+                        <div class="item-menu">
+                            <span class="glyphicon glyphicon-eye-open" ></span>
+                            <span class="glyphicon glyphicon-remove"></span>
+                            <span class="glyphicon glyphicon-move"></span>
+                        </div>
+                        <p>ID</p>
+                        <h4 class="item-titulo">Desenvolvimento do menu de opções</h4>
+                    </div>
+                    <div class="estoria-body">
+                        <dl>
+                            <dt>COMO:</dt> <dd>DBA</dd>
+                            <dt>QUERO:</dt><dd>Buscar Todos os usuário pela IDADE</dd>
+                            <dt>PARA:</dt><dd>Saber o perfil dos usuários   </dd>
+                        </dl>
+                        <p>Esforço: 5</p>
+                        <p>Assing: <a>Otávio Augusto</a></p>
+                    </div></div>  <div class="estoria doing">
+                    <div class="estoria-head">
+                        <div class="item-menu">
+                            <span class="glyphicon glyphicon-eye-open" ></span>
+                            <span class="glyphicon glyphicon-remove"></span>
+                            <span class="glyphicon glyphicon-move"></span>
+                        </div>
+                        <p>ID</p>
+                        <h4 class="item-titulo">Desenvolvimento do menu de opções</h4>
+                    </div>
+                    <div class="estoria-body">
+                        <dl>
+                            <dt>COMO:</dt> <dd>DBA</dd>
+                            <dt>QUERO:</dt><dd>Buscar Todos os usuário pela IDADE</dd>
+                            <dt>PARA:</dt><dd>Saber o perfil dos usuários   </dd>
+                        </dl>
+                        <p>Esforço: 5</p>
+                        <p>Assing: <a>Otávio Augusto</a></p>
+                    </div></div>  <div class="estoria doing">
+                    <div class="estoria-head">
+                        <div class="item-menu">
+                            <span class="glyphicon glyphicon-eye-open" ></span>
+                            <span class="glyphicon glyphicon-remove"></span>
+                            <span class="glyphicon glyphicon-move"></span>
+                        </div>
+                        <p>ID</p>
+                        <h4 class="item-titulo">Desenvolvimento do menu de opções</h4>
+                    </div>
+                    <div class="estoria-body">
+                        <dl>
+                            <dt>COMO:</dt> <dd>DBA</dd>
+                            <dt>QUERO:</dt><dd>Buscar Todos os usuário pela IDADE</dd>
+                            <dt>PARA:</dt><dd>Saber o perfil dos usuários   </dd>
+                        </dl>
+                        <p>Esforço: 5</p>
+                        <p>Assing: <a>Otávio Augusto</a></p>
+                    </div></div>
+
+
+
                     <!-- FIM -->
                 </div>
                 <div class="col-lg-4" dropzone="move"><!--Estoria BEGIN-->
                     <h3 class="text-center title done">DONE <span class="glyphicon glyphicon-plus" ></span></h3>
                     <div class="estoria done">
+                        <div class="estoria-head">
                         <div class="item-menu">
                             <span class="glyphicon glyphicon-eye-open" ></span>
                             <span class="glyphicon glyphicon-remove"></span>
@@ -113,39 +255,100 @@
                         </div>
                         <p>ID</p>
                         <h4 class="item-titulo">Desenvolvimento do menu de opções</h4>
-                        <dl>
-                            <dt>COMO:</dt> <dd>DBA</dd>
+                            </div>
+                        <div class="estoria-body">
+                         <dl>
                             <dt>QUERO:</dt><dd>Buscar Todos os usuário pela IDADE</dd>
                             <dt>PARA:</dt><dd>Saber o perfil dos usuários   </dd>
                         </dl>
                         <p>Esforço: 5</p>
                         <p>Assing: <a>Otávio Augusto</a></p>
+                            </div>
                     </div>
                     <!-- FIM --><!--Estoria BEGIN-->
                     <div class="estoria done">
-                        <div class="item-menu">
-                            <span class="glyphicon glyphicon-eye-open" ></span>
-                            <span class="glyphicon glyphicon-remove"></span>
-                            <span class="glyphicon glyphicon-move"></span>
+                        <div class="estoria-head">
+                            <div class="item-menu">
+                                <span class="glyphicon glyphicon-eye-open" ></span>
+                                <span class="glyphicon glyphicon-remove"></span>
+                                <span class="glyphicon glyphicon-move"></span>
+                            </div>
+                            <p>ID</p>
+                            <h4 class="item-titulo">Desenvolvimento do menu de opções</h4>
                         </div>
-                        <p>ID</p>
-                        <h4 class="item-titulo">Desenvolvimento do menu de opções</h4>
-                        <dl>
-                            <dt>COMO:</dt> <dd>DBA</dd>
+                        <div class="estoria-body">
+                            <dl>
                             <dt>QUERO:</dt><dd>Buscar Todos os usuário pela IDADE</dd>
                             <dt>PARA:</dt><dd>Saber o perfil dos usuários   </dd>
-                        </dl>
-                        <p>Esforço: 5</p>
-                        <p>Assing: <a>Otávio Augusto</a></p>
+                            </dl>
+                            <p>Esforço: 5</p>
+                            <p>Assing: <a>Otávio Augusto</a></p>
+                        </div>
                     </div>
+                    <div class="estoria done">
+                        <div class="estoria-head">
+                            <div class="item-menu">
+                                <span class="glyphicon glyphicon-eye-open" ></span>
+                                <span class="glyphicon glyphicon-remove"></span>
+                                <span class="glyphicon glyphicon-move"></span>
+                            </div>
+                            <p>ID</p>
+                            <h4 class="item-titulo">Desenvolvimento do menu de opções</h4>
+                        </div>
+                        <div class="estoria-body">
+                        <dl>
+                            <dt>QUERO:</dt><dd>Buscar Todos os usuário pela IDADE</dd>
+                            <dt>PARA:</dt><dd>Saber o perfil dos usuários   </dd>
+                            </dl>
+                            <p>Esforço: 5</p>
+                            <p>Assing: <a>Otávio Augusto</a></p>
+                        </div>
+                    </div>
+                    <div class="estoria done">
+                        <div class="estoria-head">
+                            <div class="item-menu">
+                                <span class="glyphicon glyphicon-eye-open" ></span>
+                                <span class="glyphicon glyphicon-remove"></span>
+                                <span class="glyphicon glyphicon-move"></span>
+                            </div>
+                            <p>ID</p>
+                            <h4 class="item-titulo">Desenvolvimento do menu de opções</h4>
+                        </div>
+                        <div class="estoria-body">
+                           <dl>
+                            <dt>QUERO:</dt><dd>Buscar Todos os usuário pela IDADE</dd>
+                            <dt>PARA:</dt><dd>Saber o perfil dos usuários   </dd>
+                            </dl>
+                            <p>Esforço: 5</p>
+                            <p>Assing: <a>Otávio Augusto</a></p>
+                        </div>
+                    </div>
+                    <div class="estoria done">
+                        <div class="estoria-head">
+                            <div class="item-menu">
+                                <span class="glyphicon glyphicon-eye-open" ></span>
+                                <span class="glyphicon glyphicon-remove"></span>
+                                <span class="glyphicon glyphicon-move"></span>
+                            </div>
+                            <p>ID</p>
+                            <h4 class="item-titulo">Desenvolvimento do menu de opções</h4>
+                        </div>
+                        <div class="estoria-body">
+                           <dl>
+                            <dt>QUERO:</dt><dd>Buscar Todos os usuário pela IDADE</dd>
+                            <dt>PARA:</dt><dd>Saber o perfil dos usuários   </dd>
+                            </dl>
+                            <p>Esforço: 5</p>
+                            <p>Assing: <a>Otávio Augusto</a></p>
+                        </div>
+                    </div>
+
                     <!-- FIM -->
                 </div>
 
             </div>
         </div>
-        <footer>
-            <h6>Todo os direitos reservados.</h6>
-        </footer>
 
+    <ng-include src="'../partials/footer.html'"></ng-include>
     </body>
 </html>
