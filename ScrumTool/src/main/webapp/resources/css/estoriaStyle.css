@@ -1,0 +1,120 @@
+html{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+   
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+hgroup{
+    position: relative;
+    width: 100%;
+    height: 75px;
+    background-color: #2196F3;
+    font-family: 'Oswald', sans-serif !important;
+    margin: 0;
+    color: #FFFFFF;
+    overflow: hidden;
+    margin-top: 0px;
+    position: relative;
+    padding-left: 100px;
+    padding-top: 15px;
+}
+header > hgroup > h1 , h2{
+    display: inline-block;
+}
+.navbar{
+    background-color: #2196F3;
+    width: 100%;
+    padding: 0px;
+}
+.estoria{
+    display: inline-block;
+    width: 49%;
+    height: 300px;
+    margin-bottom:10px;
+    padding: 25px;
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+}
+
+.item-titulo{
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bolder;
+}
+.item-menu{
+    display: inline-block;
+    float: right;
+}
+.projeto{
+    box-sizing: border-box;
+    padding-top: 15px;
+    font-size: 18px;
+    position: relative;
+    text-align: center;
+    height: 50px;
+    background: #EBEBE7;
+    color: #999;
+    border-bottom: #999 solid 1px;
+}
+.projeto > p{
+    color: #4B4444;
+}
+.membro{
+    box-sizing: border-box;
+    position: relative;
+    height: 60px;
+    background: #fff59d;
+    border-bottom: #999 solid 1px;
+}
+.membro > p{
+     display: inline-block;
+     left: 20px;
+     font-size: 18px;
+     padding-top: 15px;
+     position: relative;
+}
+.membro > img{
+    position: relative;
+    top: -7px;
+    height: 40px;
+    width: 40px;
+}
+footer{
+    position: fixed;
+    bottom: 0px;
+    height: 40px;
+    text-align: center;
+    width: 100%;
+    background: #2196F3;
+    padding-top: 10px;
+}
+.todo{
+     background-color: #f44336;
+    margin-left: 4px;
+}
+.title{
+    height: 42px;
+    position: relative;
+    padding-top: 10px;
+    color: #fff;
+}
+.doing{
+     background-color: #2196f3;
+}
+.done{
+    background-color: #4caf50;
+}
+.title > span{
+    display: inline-block;
+    float: right;
+    font-size: 15px;
+    margin-right: 10px;
+}
+.borda-right{
+    border-right: #999 dashed 2px;
+}
