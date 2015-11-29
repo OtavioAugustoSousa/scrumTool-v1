@@ -11,10 +11,10 @@ body{
     background-color: #EBEBEB;
     font-size: 13px;
 }
-hgroup{
+header{
     position: relative;
     width: 100%;
-    height: 67px;
+    height: 100px;
     background-color: rgb(128, 216, 255);
     font-family: 'Oswald', sans-serif !important;
     margin: 0;
@@ -22,19 +22,30 @@ hgroup{
     overflow: hidden;
     margin-top: 0px;
     position: relative;
+}
+hgroup{
     padding-left: 100px;
+
 }
 header > hgroup > h1 , h2{
     display: inline-block;
+    font-size: 20pt;
 }
 .navbar{
     background-color: rgb(128, 216, 255);
     width: 100%;
     padding: 0px;
 }
+.navbar-nav > li > a{
+    line-height: 10px;
+}
+.navbar-nav{
+    margin: 0px;
+
+}
 .navbar a{
     font-family: 'Roboto', sans-serif;
-    font-size: 14pt;
+    font-size: 12pt;
     color: white;
 }
  .navbar-nav > li > a:hover,
@@ -53,7 +64,6 @@ header > hgroup > h1 , h2{
 .estoria-head{
     width: 100%;
     padding: 5px 15px 5px 15px;
-    color: white;
     max-height: 50px;
 }
 .estoria-head > p{
@@ -71,16 +81,16 @@ header > hgroup > h1 , h2{
     bottom: 9px;
 }
 .todo > .estoria-head {
-    background-color: #EB574B;
+    background-color: #F86A5F;
 }
 .doing > .estoria-head {
-    background-color: #FFAE0A;
+    background-color: rgba(255, 174, 10, 0.57);
 }
 .done > .estoria-head {
-    background-color: #8CC152;
+    background-color: #A2DB64;
 }
 .estoria-body{
-    padding: 10px 20px;
+    padding: 10px 15px;
     overflow: hidden;
 }
 .estoria-body > p{
@@ -156,7 +166,7 @@ margin: 0px;
     margin-right: 10px;
 }
 .todo{
-     background-color: rgb(255, 138, 128);
+     background-color: rgb(254, 172, 165);
      margin-left: 4px;
 }
 .doing{
@@ -169,18 +179,28 @@ margin: 0px;
 .borda-right{
     border-right: #999 dashed 2px;
 }
-.kanban{
-    min-height: 471px;
+.content{
+    min-height: 524px;
     max-width: 100%;
     margin-left: 0px;
-    color: rgba(0,0,0,0.5);
+    color: rgba(0,0,0,0.6);
     font-family: 'Roboto', sans-serif;
 }
-.kanban dd{
+.content dd{
     font-size: 10pt;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
 }
-.kanban dl{
+.content dl{
     font-size: 10pt;
     margin-bottom: 0px;
+    width: 100%;
+    overflow: hidden;
+}
+.content dt {
+    float: left;
+    clear: left;
+    width: 50px;
 }

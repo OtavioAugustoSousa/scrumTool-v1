@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app" xmlns:th="http://www.thymeleaf.org">
+<html ng-app="app" xmlns:th="http://www.thymeleaf.org" manifest="../../cache.appcache">
     <head>
         <title>SCRUMTool</title>
         <meta charset="utf-8"/>
@@ -14,12 +14,12 @@
 		<script src="../../../resources/js/DataManager/Repository/localDao.js" th:src="@{/resources/js/DataManager/Repository/localDao.js}" ></script>       
 		<script src="../../../resources/js/DataManager/Repository/backlogDAO.js" th:src="@{/resources/js/DataManager/Repository/backlogDAO.js}" ></script>
         <script src="../../../resources/js/DataManager/dataController.js" th:src="@{/resources/js/DataManager/dataController.js}" ></script>
-        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
 
     </head>
     <body ng-controller="dataController">
     <ng-include src="'../partials/header.html'"></ng-include>
-        <div class="kanban row ">
+        <div class="content row ">
             <div class="col-lg-12">
 
                 <!--Estoria BEGIN-->

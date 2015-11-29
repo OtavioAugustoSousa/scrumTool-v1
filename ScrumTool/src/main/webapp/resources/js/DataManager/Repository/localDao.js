@@ -87,7 +87,7 @@ function transaction(sql, param) {
 
 function init() {
     scrumTool.webdb.open();
-   scrumTool.webdb.createTable();
+     scrumTool.webdb.createTable();
     //scrumTool.webdb.dropTable();
     scrumTool.webdb.createTable.backlog();
 }
