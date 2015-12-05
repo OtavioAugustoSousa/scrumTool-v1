@@ -3,7 +3,7 @@
 (function(angular){
     'use strict';
     //Modulos que serão usados no sistema
-    var modulos = [];
+    var modulos = ['app.repository'];
     
     angular.module('app', modulos);
 })(window.angular);

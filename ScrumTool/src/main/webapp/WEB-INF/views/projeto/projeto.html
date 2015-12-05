@@ -9,17 +9,46 @@
     <link href="../../../resources/css/estoriaStyle.css" th:href="@{/resources/css/estoriaStyle.css}" rel="stylesheet" type="text/css"/>
     <link href= "https://fonts.googleapis.com/css?family=Oswald" rel='stylesheet' type='text/css'/>
     <script src="../../../resources/js/libs/angular.js/angular.js" th:src="@{/resources/js/libs/angular.js/angular.js}" ></script>
+    <script src="../../../resources/js/DataManager/Repository/projetoRepository.js" th:src="@{/resources/js/DataManager/Repository/projetoRepository.js}" ></script>
     <script src="../../../resources/js/AppManager/scrumtool.js" th:src="@{/resources/js/AppManager/scrumtool.js}" ></script>
+
     <script src="../../../resources/js/AppManager/controller.js" th:src="@{/resources/js/AppManager/controller.js}" ></script>
     <script src="../../../resources/js/DataManager/Repository/localDao.js" th:src="@{/resources/js/DataManager/Repository/localDao.js}" ></script>
     <script src="../../../resources/js/DataManager/Repository/backlogDAO.js" th:src="@{/resources/js/DataManager/Repository/backlogDAO.js}" ></script>
     <script src="../../../resources/js/DataManager/dataController.js" th:src="@{/resources/js/DataManager/dataController.js}" ></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
 
+
 </head>
-<body>
+<body ng-controller="dataController as dataController">
 <ng-include src="'../partials/header.html'"></ng-include>
-<div class="content"></div>
+<div class="content">
+  <div  class="projetos container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            Basic panel example
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            Basic panel example
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            Basic panel example
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            Basic panel example
+        </div>
+    </div>
+      <input type="test" ng-model="nome"/>
+      {{nome}}
+      <button ng-click="add()">ADD</button>
+  </div>
+</div>
 <ng-include src="'../partials/footer.html'"></ng-include>
 
 </body>
