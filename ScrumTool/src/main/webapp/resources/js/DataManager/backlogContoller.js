@@ -8,9 +8,9 @@
     function backlogController($scope, backlogRepository, $timeout, $rootScope) {
         $scope.itemBacklog = {};
         $scope.nome = "";
-        //$scope.add = createItem();
-        function init(){
-            backlogRepository.open().then(function(){
+        $scope.rows = [];
+        function init() {
+            backlogRepository.open().then(function () {
                 listToDo();
             });
         }
@@ -20,35 +20,26 @@
         $scope.createItem = function () {
             var ele = $('#createItem');
             ele.modal('show');
+        };
 
-        }
         function listToDo() {
-            $timeout(function () {
-            }, 250);
             backlogRepository.getbacklogs()
-                .then(
-                    function (sucesso) {
-                        $scope.rows = sucesso;
-                    },
-                    function (erro) {
-                        console.log(erro)
-                    });
-    };
-    $scope.salvar = function (item) {
-        var ele = $('#createItem').modal('hide');
-        $timeout(function () {
-        }, 250);
-
-        backlogRepository.saveBacklog(item)
-            .then(
-                function (sucesso) {
+                .then(function (sucesso) {
+                    $scope.rows = sucesso;
+                });
+        };
+        $scope.salvar = function (item) {
+            var ele = $('#createItem').modal('hide');
+            var promisse = backlogRepository.saveBacklog(item);
+            promisse.then(
+                function () {
                     listToDo();
                 },
                 function (erro) {
                     console.log(erro)
                 });
+        }
     }
-}
 })
 (window.angular);
 

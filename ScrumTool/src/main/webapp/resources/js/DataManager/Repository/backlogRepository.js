@@ -1,6 +1,6 @@
 (function (angular) {
     'use strict';
-    function backlogRepository($q) {
+    function backlogRepository($q, $rootScope) {
         var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
         var db = null;
         var lastIndexBacklog = 0;
@@ -19,7 +19,9 @@
             }
             request.onsuccess = function (e) {
                 db = request.result;
-                deferred.resolve();
+                $rootScope.$apply(function(){
+                    deferred.resolve();
+                });
             };
 
             request.onerror = function () {
@@ -45,7 +47,7 @@
                 cursorRequest.onsuccess = function (e) {
                     var result = e.target.result;
                     if (result === null || result === undefined) {
-                        deferred.resolve(backlogs);
+                        $rootScope.$apply(function(){ deferred.resolve(backlogs);});
                     } else {
                         backlogs.push(result.value);
                         if (result.value.id > lastIndexBacklog) {
@@ -74,9 +76,8 @@
                 var trans = db.transaction(["backlog"], "readwrite");
                 var store = trans.objectStore("backlog");
                 var request = store.put(backlog);
-
                 request.onsuccess = function (e) {
-                    deferred.resolve();
+                    $rootScope.$apply(function(){  deferred.resolve();});
                 };
 
                 request.onerror = function (e) {
@@ -95,7 +96,7 @@
     angular
         .module('app.repository')
         .factory('backlogRepository', backlogRepository);
-        backlogRepository.$inject = ['$q'];
+        backlogRepository.$inject = ['$q','$rootScope'];
 
 })(window.angular);
 
