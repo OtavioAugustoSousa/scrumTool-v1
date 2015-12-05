@@ -67,6 +67,45 @@
             return deferred.promise;
 
         };
+        var getBacklogByStatus = function (status) {
+            var deferred = $q.defer();
+            if (db === null) {
+                deferred.reject("IndexDB is not opened yet!");
+            } else {
+                var trans = db.transaction(["backlog"], "readwrite");
+                var store = trans.objectStore("backlog");
+                var backlogs = [];
+
+                // Get everything in the store;
+                var keyRange = IDBKeyRange.lowerBound(0);
+                var cursorRequest = store.openCursor(keyRange);
+
+                cursorRequest.onsuccess = function (e) {
+                    var result = e.target.result;
+                    if (result === null || result === undefined) {
+                        $rootScope.$apply(function(){ deferred.resolve(backlogs);});
+                    } else {
+                        var valor = result.value;
+                        if(valor.status ==  status){
+                            backlogs.push(result.value);
+                        }
+                        if (result.value.id > lastIndexBacklog) {
+                            lastIndexBacklog = result.value.id;
+                        }
+                        result.continue();
+                    }
+                };
+
+                cursorRequest.onerror = function (e) {
+                    deferred.reject("Backlog item couldn't be found!");
+                    console.log(e.value);
+                    console.log("Something went wrong!!!");
+                };
+            }
+
+            return deferred.promise;
+
+        };
 
         var saveBacklog = function (backlog) {
             var deferred = $q.defer();
@@ -90,7 +129,8 @@
         return {
             open: open,
             getbacklogs: getBacklogs,
-            saveBacklog: saveBacklog
+            saveBacklog: saveBacklog,
+            getBacklogByStatus: getBacklogByStatus
         }
     }
     angular

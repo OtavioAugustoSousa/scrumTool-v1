@@ -169,9 +169,11 @@ margin: 0px;
 }
 .doing{
      background-color: rgb(255, 255, 141);
+    margin-left: 4px;
 }
 .done{
     background-color: rgb(204, 255, 144);
+    margin-left: 4px;
 }
 
 .content{
