@@ -12,11 +12,6 @@ import org.springframework.security.crypto.password.StandardPasswordEncoder;
 @Configuration
 @EnableWebMvcSecurity
 class SecurityConfig extends WebSecurityConfigurerAdapter {
-	
- 
-
-
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new StandardPasswordEncoder();

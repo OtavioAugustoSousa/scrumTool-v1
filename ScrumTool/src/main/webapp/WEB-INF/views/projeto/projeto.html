@@ -1,71 +1,81 @@
 <!DOCTYPE html>
 <html ng-app="app" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>SCRUMTool</title>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link href="../../../resources/js/libs/angular-ui/angular-ui.css"
-          th:href="@{/resources/js/libs/angular-ui/angular-ui.css}" rel="stylesheet" type="text/css"/>
-    <script src="../../../resources/js/libs/jquery-2.1.4.min.js"
-            th:src="@{/resources/js/libs/jquery-2.1.4.min.js}"></script>
-    <script src="../../../resources/js/libs/bootstrap.min.js" th:src="@{/resources/js/libs/bootstrap.min.js}"></script>
-    <link href="../../../resources/css/bootstrap-3.3.5-dist/css/bootstrap.min.css"
-          th:href="@{/resources/css/bootstrap-3.3.5-dist/css/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
-    <link href="../../../resources/css/estoriaStyle.css" th:href="@{/resources/css/estoriaStyle.css}" rel="stylesheet"
-          type="text/css"/>
-    <link href="https://fonts.googleapis.com/css?family=Oswald" rel='stylesheet' type='text/css'/>
-    <script src="../../../resources/js/libs/angular.js/angular.min.js"
-            th:src="@{/resources/js/libs/angular.js/angular.min.js}"></script>
-    <script src="../../../resources/js/DataManager/Repository/projetoRepository.js"
-            th:src="@{/resources/js/DataManager/Repository/projetoRepository.js}"></script>
-    <script src="../../../resources/js/DataManager/Repository/backlogRepository.js"
-            th:src="@{/resources/js/DataManager/Repository/backlogRepository.js}"></script>
-    <script src="../../../resources/js/AppManager/scrumtool.js"
-            th:src="@{/resources/js/AppManager/scrumtool.js}"></script>
-    <script src="../../../resources/js/AppManager/controller.js"
-            th:src="@{/resources/js/AppManager/controller.js}"></script>
-    <script src="../../../resources/js/DataManager/Repository/localDao.js"
-            th:src="@{/resources/js/DataManager/Repository/localDao.js}"></script>
-    <script src="../../../resources/js/DataManager/Repository/backlogDAO.js"
-            th:src="@{/resources/js/DataManager/Repository/backlogDAO.js}"></script>
-    <script src="../../../resources/js/DataManager/dataController.js"
-            th:src="@{/resources/js/DataManager/dataController.js}"></script>
-    <script src="../../../resources/js/DataManager/backlogContoller.js"
-            th:src="@{/resources/js/DataManager/backlogContoller.js}"></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css"/>
-
-
+<title>SCRUMTool</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="../../../resources/js/libs/angular-ui/angular-ui.css"
+	th:href="@{/resources/js/libs/angular-ui/angular-ui.css}"
+	rel="stylesheet" type="text/css" />
+<script src="../../../resources/js/libs/jquery-2.1.4.min.js"
+	th:src="@{/resources/js/libs/jquery-2.1.4.min.js}"></script>
+<script src="../../../resources/js/libs/bootstrap.min.js"
+	th:src="@{/resources/js/libs/bootstrap.min.js}"></script>
+<link
+	href="../../../resources/css/bootstrap-3.3.5-dist/css/bootstrap.min.css"
+	th:href="@{/resources/css/bootstrap-3.3.5-dist/css/bootstrap.min.css}"
+	rel="stylesheet" type="text/css" />
+<link href="../../../resources/css/estoriaStyle.css"
+	th:href="@{/resources/css/estoriaStyle.css}" rel="stylesheet"
+	type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Oswald"
+	rel='stylesheet' type='text/css' />
+<script src="../../../resources/js/libs/angular.js/angular.min.js"
+	th:src="@{/resources/js/libs/angular.js/angular.min.js}"></script>
+<script
+	src="../../../resources/js/DataManager/Repository/projetoRepository.js"
+	th:src="@{/resources/js/DataManager/Repository/projetoRepository.js}"></script>
+<script
+	src="../../../resources/js/DataManager/Repository/backlogRepository.js"
+	th:src="@{/resources/js/DataManager/Repository/backlogRepository.js}"></script>
+<script src="../../../resources/js/AppManager/scrumtool.js"
+	th:src="@{/resources/js/AppManager/scrumtool.js}"></script>
+<script src="../../../resources/js/AppManager/controller.js"
+	th:src="@{/resources/js/AppManager/controller.js}"></script>
+<script src="../../../resources/js/DataManager/Repository/localDao.js"
+	th:src="@{/resources/js/DataManager/Repository/localDao.js}"></script>
+<script src="../../../resources/js/DataManager/Repository/backlogDAO.js"
+	th:src="@{/resources/js/DataManager/Repository/backlogDAO.js}"></script>
+<script src="../../../resources/js/DataManager/dataController.js"
+	th:src="@{/resources/js/DataManager/dataController.js}"></script>
+<script src="../../../resources/js/DataManager/backlogContoller.js"
+	th:src="@{/resources/js/DataManager/backlogContoller.js}"></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto"
+	rel="stylesheet" type="text/css" />
 </head>
 <body ng-controller="dataController as dataController">
-<ng-include src="'/ScrumTool/resources/partials/header.html'"></ng-include>
-<div class="content">
-  <div  class="projetos container-fluid">
-    <div class="panel panel-default">
-        <div class="panel-body">
-            Basic panel example
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-body">
-            Basic panel example
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-body">
-            Basic panel example
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-body">
-            Basic panel example
-        </div>
-    </div>
-      <input type="test" ng-model="nome"/>
-      {{nome}}
-      <button ng-click="add()">ADD</button>
-  </div>
-</div>
-<ng-include src="'/ScrumTool/resources/partials/footer.html'"></ng-include>
+	<ng-include src="'resources/partials/header.html'"></ng-include>
+	<div class="content">
+		<div class="projetos container-fluid">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<h3>projeto TCC</h3>
+					<dl>
+						<dt>Data inicio:</dt><dd>28/12/2015</dd>
+						<dt>Data fim:</dt><dd>28/12/2015</dd>
+						<dt>Quantidade de horas:</dt><dd>1000hrs</dd>
+						<dt>Cliente</dt><dd>UFC</dd>
+						<dt>Responsável</dt><dd>Otávio Augusto de Sousa</dd>
+						<dt>Quantidade de Sprints</dt><dd>5</dd>
+						<dt>Time:</dt><dd>Otávio Augusto de Sousa</dd><dd>Otávio Augusto de Sousa</dd><dd>Otávio Augusto de Sousa</dd><dd>Otávio Augusto de Sousa</dd><dd>Otávio Augusto de Sousa</dd>
+						<dt>Tamanho Sprints</dt><dd>15 dias</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-body">Basic panel example</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-body">Basic panel example</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-body">Basic panel example</div>
+			</div>
+			<input type="test" ng-model="nome" />
+			<button ng-click="add()">ADD</button>
+		</div>
+	</div>
+	<ng-include src="'/resources/partials/footer.html'"></ng-include>
 
 </body>
 </html>

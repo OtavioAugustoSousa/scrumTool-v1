@@ -1,4 +1,4 @@
-package br.ufc.quixada.es.ScrumTool.projeto;
+package br.ufc.quixada.es.ScrumTool.views.projeto;
 
 import java.security.Principal;
 
