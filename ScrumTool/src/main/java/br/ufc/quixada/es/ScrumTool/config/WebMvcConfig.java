@@ -1,27 +1,21 @@
 package br.ufc.quixada.es.ScrumTool.config;
 
-import static org.springframework.context.annotation.ComponentScan.Filter;
-
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
-import org.thymeleaf.extras.springsecurity3.dialect.SpringSecurityDialect;
-import org.thymeleaf.spring4.SpringTemplateEngine;
-import org.thymeleaf.spring4.view.ThymeleafViewResolver;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
-import org.thymeleaf.templateresolver.TemplateResolver;
 
 import br.ufc.quixada.es.ScrumTool.Application;
 
@@ -57,7 +51,7 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
         return messageSource;
     }
 
-    @Bean
+   /* @Bean
     public TemplateResolver templateResolver() {
         TemplateResolver templateResolver = new ServletContextTemplateResolver();
         templateResolver.setPrefix(VIEWS);
@@ -66,9 +60,9 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
         templateResolver.setCharacterEncoding("UTF-8");
         templateResolver.setCacheable(false);
         return templateResolver;
-    }
+    }*/
 
-    @Bean
+   /* @Bean
     public SpringTemplateEngine templateEngine() {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver());
@@ -82,7 +76,7 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
         thymeleafViewResolver.setTemplateEngine(templateEngine());
         thymeleafViewResolver.setCharacterEncoding("UTF-8");
         return thymeleafViewResolver;
-    }
+    }*/
 
     @Override
     public Validator getValidator() {
