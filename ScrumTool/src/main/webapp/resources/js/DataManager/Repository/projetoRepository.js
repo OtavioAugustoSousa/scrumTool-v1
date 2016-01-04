@@ -7,7 +7,7 @@
 
         var open = function () {
             var deferred = $q.defer();
-            var version = 5;
+            var version = 7;
             var request = indexedDB.open("scrumToolDB", version);
             request.onupgradeneeded = function (e) {
                 db = e.target.result;
@@ -51,7 +51,7 @@
                     if (result === null || result === undefined) {
                         deferred.resolve(projetos);
                     } else {
-                        tasks.push(result.value);
+                    	projetos.push(result.value);
                         if (result.value.id > lastIndexProjeto) {
                             lastIndexProjeto = result.value.id;
                         }

@@ -7,7 +7,7 @@
 
         var open = function () {
             var deferred = $q.defer();
-            var version = 6;
+            var version = 7;
             var request = indexedDB.open("scrumToolDB", version);
             request.onupgradeneeded = function (e) {
                 db = e.target.result;
