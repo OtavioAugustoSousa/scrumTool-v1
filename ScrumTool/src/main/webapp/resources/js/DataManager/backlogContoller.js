@@ -56,6 +56,7 @@
             var ele = $('#createItem').modal('hide');
             item.status = $scope.status;
             salvar(item);
+            $scope.itemBacklog ={};
         };
         function salvar(item){
             var promisse = backlogRepository.saveBacklog(item);
@@ -130,6 +131,29 @@
             }
             return false;
         }
+        $scope.updateItem= function(item){
+        	  var ele = $('#updateItem');
+              ele.modal('show');
+              $scope.itemBacklog =item;    
+        }
+        $scope.update= function(item){
+      	  var ele = $('#updateItem');
+            ele.modal('hide');
+           salvar(item); 
+           $scope.itemBacklog ={};
+      }
+      
+      $scope.delete= function(item) {
+    	  var promisse = backlogRepository.removeBacklog(item);
+          promisse.then(
+              function () {
+                  listAll();
+              },
+              function (erro) {
+                  console.log(erro)
+              });
+	}
+        
     }
 })
 (window.angular);

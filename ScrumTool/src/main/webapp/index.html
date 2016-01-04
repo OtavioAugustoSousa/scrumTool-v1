@@ -49,10 +49,10 @@
 					data-ng-repeat="row in list_Todo">
 					<div class="estoria-head">
 						<div class="item-menu">
-							<span class="glyphicon glyphicon glyphicon-edit"></span> <span
-								class="glyphicon glyphicon-remove"></span>
+							<span class="glyphicon glyphicon glyphicon-edit" data-ng-click="updateItem(row)"></span> <span
+								class="glyphicon glyphicon-remove" data-ng-click="delete(row)"></span>
 						</div>
-						<p>ID:{{row.id}}</p>
+						<p class="item-id">ID:{{row.id}}</p>
 						<h4 class="item-titulo">{{row.titulo}}</h4>
 					</div>
 					<div class="estoria-body">
@@ -87,10 +87,10 @@
 					ng-repeat="row in list_Doing">
 					<div class="estoria-head">
 						<div class="item-menu">
-							<span class="glyphicon glyphicon glyphicon-edit"></span> <span
-								class="glyphicon glyphicon-remove"></span>
+							<span class="glyphicon glyphicon glyphicon-edit"  data-ng-click="updateItem(row)"></span> <span
+								class="glyphicon glyphicon-remove" data-ng-click="delete(row)"></span>
 						</div>
-						<p>ID:{{row.id}}</p>
+						<p class="item-id">ID:{{row.id}}</p>
 						<h4 class="item-titulo">{{row.titulo}}</h4>
 					</div>
 					<div class="estoria-body">
@@ -125,10 +125,10 @@
 					ng-repeat="row in list_Done">
 					<div class="estoria-head">
 						<div class="item-menu">
-							<span class="glyphicon glyphicon glyphicon-edit"></span> <span
-								class="glyphicon glyphicon-remove"></span>
+							<span class="glyphicon glyphicon glyphicon-edit"  data-ng-click="updateItem(row)"></span> <span
+								class="glyphicon glyphicon-remove" data-ng-click="delete(row)"></span>
 						</div>
-						<p>ID:{{row.id}}</p>
+						<p class="item-id">ID:{{row.id}}</p>
 						<h4 class="item-titulo">{{row.titulo}}</h4>
 					</div>
 					<div class="estoria-body">
@@ -155,7 +155,7 @@
 
 
 	<ng-include src="'/scrumtool/resources/partials/formCreateItem.html'"></ng-include>
-
+	<ng-include src="'/scrumtool/resources/partials/formUpdateItem.html'"></ng-include>
 	<ng-include src="'/scrumtool/resources/partials/footer.html'"></ng-include>
 </body>
 </html>

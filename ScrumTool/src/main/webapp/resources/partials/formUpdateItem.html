@@ -1,10 +1,11 @@
-<div class="modal fade" id="createItem" tabindex="-1" role="dialog" aria-labelledby="createItemLabel">
+<meta charset="utf-8" />
+<div class="modal fade" id="updateItem" tabindex="-1" role="dialog" aria-labelledby="createItemLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">CriaÃ§Ã£o de uma histÃ³ria</h4>
+                <h4 class="modal-title" id="myModalLabel">Atualização</h4>
             </div>
             <div class="modal-body">
                 <form class="container-fluid">
@@ -27,7 +28,7 @@
                         <input type="text"  ng-model="itemBacklog.para" name="para"/>
                     </div>
                     <div class="row ">
-                        <div class="col-lg-2"><label>EsforÃ§o: </label></div>
+                        <div class="col-lg-2"><label>Esforço: </label></div>
                         <input type="text"  ng-model="itemBacklog.esforco" name="esforco"/>
                     </div>
                     <div class="row">
@@ -38,7 +39,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" ng-click="salvar(itemBacklog)">Save changes</button>
+                <button type="button" class="btn btn-primary" ng-click="update(itemBacklog)">Save changes</button>
             </div>
         </div>
     </div>

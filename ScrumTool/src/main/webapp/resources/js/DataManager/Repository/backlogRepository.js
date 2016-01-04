@@ -149,12 +149,33 @@
 
             return deferred.promise;
         };
+        
+        var removeBacklog = function (backlog) {
+            var deferred = $q.defer();
+            if (db === null) {
+                deferred.reject("IndexDB is not opened yet!");
+            } else {
+                var trans = db.transaction(["backlog"], "readwrite");
+                var store = trans.objectStore("backlog");
+                var request = store.delete(backlog.id);
+                request.onsuccess = function (e) {
+                    $rootScope.$apply(function(){  deferred.resolve();});
+                };
+
+                request.onerror = function (e) {
+                    deferred.reject("Backlog item couldn't be remove!");
+                };
+            }
+
+            return deferred.promise;
+        };
         return {
             open: open,
             getbacklogs: getBacklogs,
             saveBacklog: saveBacklog,
             getBacklogByStatus: getBacklogByStatus,
-            getById: getById
+            getById: getById,
+            removeBacklog:removeBacklog
         }
     }
     angular

@@ -211,3 +211,6 @@ margin: 0px;
 .dropzone{
     min-height: 260px;
 }
+.item-id{
+	width: 50%;
+}
