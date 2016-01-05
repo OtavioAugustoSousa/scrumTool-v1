@@ -30,7 +30,7 @@
 <script src="/scrumtool/resources/js/AppManager/scrumtool.js"></script>
 <script src="/scrumtool/resources/js/AppManager/equipeController.js"></script>
 <script
-	src="/scrumtool/resources/js/DataManager/Repository/projetoRepository.js"></script>
+	src="/scrumtool/resources/js/DataManager/Repository/equipeRepository.js"></script>
 </head>
 <body data-ng-controller="equipeController">
 	<ng-include src="'/scrumtool/resources/partials/header.html'"></ng-include>
@@ -47,7 +47,7 @@
 				</div>
 			</div>
 			<div class="container-equipe col-lg-5" dropzone="move"
-				id="stakeholder" ondrop="angular.element(this).scope().drop(event)"
+				id="stakeholders" ondrop="angular.element(this).scope().drop(event)"
 				ondragover="angular.element(this).scope().allowDrop(event)">
 				<h3>Stakeholders</h3>
 				<div class="pessoa" draggable="true"
@@ -61,7 +61,9 @@
 						draggable="false" /> <span>Ana</span>
 				</div>
 			</div>
-			<div class="container-equipe col-lg-10">
+			<div class="container-equipe col-lg-10" dropzone="move"
+				id="equipe" ondrop="angular.element(this).scope().drop(event)"
+				ondragover="angular.element(this).scope().allowDrop(event)">
 				<h3>Equipe</h3>
 				<div class="pessoa" draggable="true"
 					ondragstart="angular.element(this).scope().drag(event)" id="4">
@@ -80,7 +82,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="container-pessoas col-lg-4">
+		<div class="container-pessoas col-lg-4" dropzone="move"
+				id="pessoas" ondrop="angular.element(this).scope().drop(event)"
+				ondragover="angular.element(this).scope().allowDrop(event)">
 			<h3>Pessoas</h3>
 			<div class="pessoa" draggable="true"
 				ondragstart="angular.element(this).scope().drag(event)" id="7">

@@ -71,7 +71,7 @@
 
         $scope.allowDrop = function (ev) {
             ev.preventDefault();
-            ev.currentTarget.style.border = "dashed";
+            ev.currentTarget.style.border = "dashed thin";
             ev.effectAllowed = "copyMove";
         }
 
@@ -143,7 +143,7 @@
            $scope.itemBacklog ={};
       }
       
-      $scope.delete= function(item) {
+      $scope.delete = function(item) {
     	  var promisse = backlogRepository.removeBacklog(item);
           promisse.then(
               function () {
