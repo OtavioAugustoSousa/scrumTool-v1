@@ -15,7 +15,6 @@
 		}
 		function init() {
 			projetoRepository.open().then(function() {
-				console.log("conexao aberta");
 				listarProjetos();
 				
 			});
@@ -30,7 +29,6 @@
 		function salvar(projeto) {
 			var promisse = projetoRepository.saveProjeto(projeto);
 			promisse.then(function() {
-				console.log("Proejto salvo");
 			}, function(erro) {
 				console.log(erro)
 			});
@@ -39,7 +37,6 @@
 			 projetoRepository.getProjetos()
 	                .then(function (sucesso) {
 	                    $scope.projetos = sucesso;
-	                    console.log($scope.projetos);
 	                });
 	        };
 	}
