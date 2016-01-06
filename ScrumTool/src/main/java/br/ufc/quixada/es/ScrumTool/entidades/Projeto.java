@@ -14,7 +14,8 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 @Entity
 public class Projeto {
 	@Id
-	@GeneratedValue
+	@org.hibernate.annotations.GenericGenerator(name="hilo-strategy", strategy = "hilo")
+	@GeneratedValue(generator = "hilo-strategy")
 	private Long id;
 	private String nome;
 	@JsonDeserialize(using = LocalDateDeserializer.class)
@@ -24,6 +25,10 @@ public class Projeto {
 	@JsonSerialize(using = LocalDateSerializer.class)
 	private LocalDate datafim;
 	private Integer quantidadeHoras;
+	private String cliente;
+	private String responsavel;
+	private Integer quantidadeSprints;
+	private Integer tamanhoSprint;
 	
 	public Long getId() {
 		return id;
@@ -63,6 +68,22 @@ public class Projeto {
 
 	public void setQuantidadeHoras(Integer quantidadeHoras) {
 		this.quantidadeHoras = quantidadeHoras;
+	}
+
+	public String getCliente() {
+		return cliente;
+	}
+
+	public String getResponsavel() {
+		return responsavel;
+	}
+
+	public Integer getQuantidadeSprints() {
+		return quantidadeSprints;
+	}
+
+	public Integer getTamanhoSprint() {
+		return tamanhoSprint;
 	}
 	
 }

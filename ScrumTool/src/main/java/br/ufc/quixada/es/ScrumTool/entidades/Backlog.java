@@ -1,44 +1,34 @@
 package br.ufc.quixada.es.ScrumTool.entidades;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Backlog {
 	@Id
 	private Long id;
-	@ManyToOne
-	private Sprint sprint;
 	private String como;
 	private String quero;
 	private String para;
 	private String titulo;
-	@OneToMany
-	private List<Tag> tags;
 	@ManyToOne
 	private Pessoa pessoa;
 	private Integer esforco;
 	@Enumerated
 	private Estado estado;
+	
+	@OneToOne
+	private Projeto projeto;
+	
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Sprint getSprint() {
-		return sprint;
-	}
-
-	public void setSprint(Sprint sprint) {
-		this.sprint = sprint;
 	}
 
 	public String getComo() {
@@ -71,14 +61,6 @@ public class Backlog {
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
-	}
-
-	public List<Tag> getTags() {
-		return tags;
-	}
-
-	public void setTags(List<Tag> tags) {
-		this.tags = tags;
 	}
 
 	public Pessoa getPessoa() {

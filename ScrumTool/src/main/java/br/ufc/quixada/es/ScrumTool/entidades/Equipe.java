@@ -1,21 +1,24 @@
 package br.ufc.quixada.es.ScrumTool.entidades;
 
-import java.util.List;
-
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Equipe {
 	@Id
+	@org.hibernate.annotations.GenericGenerator(name="hilo-strategy", strategy = "hilo")
+	@GeneratedValue(generator = "hilo-strategy")
 	private Long id;
 	@OneToOne
 	private Projeto projeto;
-	@ManyToMany
-	private List<Pessoa> pessoa;
-
+	@OneToOne
+	private Pessoa pessoa;
+	
+	@Enumerated
+	private Papel papel;
 	public Long getId() {
 		return id;
 	}
@@ -32,11 +35,11 @@ public class Equipe {
 		this.projeto = projeto;
 	}
 
-	public List<Pessoa> getPessoa() {
+	public Pessoa getPessoa() {
 		return pessoa;
 	}
 
-	public void setPessoa(List<Pessoa> pessoa) {
+	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
 }

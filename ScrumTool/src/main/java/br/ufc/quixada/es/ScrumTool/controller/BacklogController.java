@@ -9,34 +9,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.ufc.quixada.es.ScrumTool.entidades.Projeto;
-import br.ufc.quixada.es.ScrumTool.facade.ProjetoFacade;
+import br.ufc.quixada.es.ScrumTool.entidades.Backlog;
+import br.ufc.quixada.es.ScrumTool.facade.BacklogFacade;
 
 @RestController
-@RequestMapping(value="/projetos")
-
-public class ProjetoController {
+@RequestMapping(value="/backlogs")
+public class BacklogController {
 	
 	@Autowired 
-	ProjetoFacade projetoFacade;
+	private BacklogFacade backlogFacade;
 
 	@RequestMapping(value="", method=RequestMethod.POST,consumes="application/json", produces="application/json")
-	public void adiciona(@RequestBody Projeto projeto) {
-		projetoFacade.save(projeto);
+	public void adiciona(@RequestBody Backlog backlog) {
+		backlogFacade.save(backlog);
 	}
 
 	@RequestMapping(value="",method=RequestMethod.GET, produces="application/json")
-	public List<Projeto> list() {	
-		return projetoFacade.getProjetos();
+	public List<Backlog> list() {	
+		return backlogFacade.getBacklogs();
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public void delete(@PathVariable("id") Long id) {
-		projetoFacade.remove(id);
+		backlogFacade.remove(id);
 	}
 	
 	@RequestMapping(value="", method=RequestMethod.PATCH)
-	public void update(@RequestBody Projeto projeto) {
-		projetoFacade.update(projeto);
+	public void update(@RequestBody Backlog backlog) {
+		backlogFacade.update(backlog);
 	}
 }

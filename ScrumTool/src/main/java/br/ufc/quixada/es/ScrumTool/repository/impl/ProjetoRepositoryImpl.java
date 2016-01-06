@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +17,8 @@ public class ProjetoRepositoryImpl implements ProjetoRepository {
 
 	@PersistenceContext
 	private EntityManager entityManager;
-
+	private final static String DELETE="DELETE FROM Projeto p Where p.id = :id";
+	
 	@Override
 	@Transactional
 	public void save(Projeto projeto) {
@@ -24,11 +26,14 @@ public class ProjetoRepositoryImpl implements ProjetoRepository {
 	}
 
 	@Override
+	@Transactional
 	public void remove(Long id) {
-		entityManager.remove(id);
+	Query q	= entityManager.createQuery(DELETE).setParameter("id", id);
+	q.executeUpdate();		
 	}
 
 	@Override
+	@Transactional
 	public void update(Projeto projeto) {
 		entityManager.merge(projeto);
 
