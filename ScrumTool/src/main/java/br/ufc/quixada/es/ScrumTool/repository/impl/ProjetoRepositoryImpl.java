@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.ufc.quixada.es.ScrumTool.entidades.Projeto;
 import br.ufc.quixada.es.ScrumTool.repository.ProjetoRepository;
@@ -17,6 +18,7 @@ public class ProjetoRepositoryImpl implements ProjetoRepository {
 	private EntityManager entityManager;
 
 	@Override
+	@Transactional
 	public void save(Projeto projeto) {
 		entityManager.persist(projeto);
 	}
