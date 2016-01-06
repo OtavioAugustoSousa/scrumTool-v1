@@ -22,8 +22,8 @@ public class ProjetoFacade {
 		projetoService.update(projeto);
 	}
 
-	public void remove(Projeto projeto) {
-		projetoService.remove(projeto);
+	public void remove(Long id) {
+		projetoService.remove(id);
 	}
 	
 	public Projeto findById(Long id){

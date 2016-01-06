@@ -24,8 +24,8 @@ public class ProjetoRepositoryImpl implements ProjetoRepository {
 	}
 
 	@Override
-	public void remove(Projeto projeto) {
-		entityManager.remove(projeto);
+	public void remove(Long id) {
+		entityManager.remove(id);
 	}
 
 	@Override
