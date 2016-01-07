@@ -2,13 +2,15 @@ package br.ufc.quixada.es.ScrumTool.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Backlog {
 	@Id
+	@org.hibernate.annotations.GenericGenerator(name="hilo-strategy", strategy = "hilo")
+	@GeneratedValue(generator = "hilo-strategy")
 	private Long id;
 	private String como;
 	private String quero;
@@ -20,9 +22,17 @@ public class Backlog {
 	@Enumerated
 	private Estado estado;
 	
-	@OneToOne
+	@ManyToOne
 	private Projeto projeto;
 	
+	public Projeto getProjeto() {
+		return projeto;
+	}
+
+	public void setProjeto(Projeto projeto) {
+		this.projeto = projeto;
+	}
+
 	public Long getId() {
 		return id;
 	}

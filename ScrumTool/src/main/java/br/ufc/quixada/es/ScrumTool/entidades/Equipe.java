@@ -19,6 +19,7 @@ public class Equipe {
 	
 	@Enumerated
 	private Papel papel;
+	
 	public Long getId() {
 		return id;
 	}
