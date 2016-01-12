@@ -14,8 +14,8 @@ public class EquipeFacade {
 	@Autowired
 	private EquipeService equipeService;
 
-	public void save(Equipe equipe) {
-		equipeService.save(equipe);
+	public Equipe save(Equipe equipe) {
+		return equipeService.save(equipe);
 	}
 
 	public void update(Equipe equipe) {

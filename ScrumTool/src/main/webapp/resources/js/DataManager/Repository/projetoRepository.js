@@ -7,7 +7,7 @@
 
         var open = function () {
             var deferred = $q.defer();
-            var version = 7;
+            var version = 10;
             var request = indexedDB.open("scrumToolDB", version);
             request.onupgradeneeded = function (e) {
                 db = e.target.result;
@@ -17,8 +17,7 @@
                     db.deleteObjectSore("projeto");
                 }
                 db.createObjectStore("projeto", {
-                    keyPath: "id",
-                    autoIncrement: true
+                    keyPath: "id"
                 });
             }
             request.onsuccess = function (e) {

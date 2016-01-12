@@ -1,13 +1,13 @@
 (function (angular) {
     'use strict';
-    function equipeRepository($q) {
+    function equipeRepository($q, $rootScope) {
         var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
         var db = null;
         var lastIndexequipe = 0;
 
         var open = function () {
             var deferred = $q.defer();
-            var version = 7;
+            var version = 10;
             var request = indexedDB.open("scrumToolDB", version);
             request.onupgradeneeded = function (e) {
                 db = e.target.result;
@@ -17,8 +17,7 @@
                     db.deleteObjectSore("equipe");
                 }
                 db.createObjectStore("equipe", {
-                    keyPath: "id",
-                    autoIncrement: true
+                    keyPath: "id"
                 });
             }
             request.onsuccess = function (e) {
@@ -69,6 +68,31 @@
             return deferred.promise;
 
         };
+        
+        var getById = function (id) {
+            var deferred = $q.defer();
+            if (db === null) {
+                deferred.reject("IndexDB is not opened yet!");
+            } else {
+                var trans = db.transaction(["equipe"], "readwrite");
+                var store = trans.objectStore("equipe");
+                var request = store.get(parseInt(id));
+
+                request.onsuccess = function (e) {
+                    $rootScope.$apply(function(){ deferred.resolve(e.target.result);});
+                    console.log();
+                };
+
+                request.onerror = function (e) {
+                    deferred.reject("Backlog item couldn't be found!");
+                    console.log(e.value);
+                    console.log("Something went wrong!!!");
+                };
+            }
+
+            return deferred.promise;
+
+        };
 
         var saveequipe = function (equipe) {
             var deferred = $q.defer();
@@ -93,13 +117,14 @@
         return {
             open: open,
             getequipes: getequipes,
+            getById:getById,
             saveequipe: saveequipe
         }
     }
     angular
         .module('app.repository', [])
         .factory('equipeRepository', equipeRepository);
-    equipeRepository.$inject = ['$q'];
+    equipeRepository.$inject = ['$q','$rootScope'];
 
 })(window.angular);
 

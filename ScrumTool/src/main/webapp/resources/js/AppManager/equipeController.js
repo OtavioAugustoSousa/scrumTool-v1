@@ -5,6 +5,51 @@
 	equipeController.$inject = [ '$scope', 'equipeRepository','$timeout', '$rootScope' ];
 
 	function equipeController($scope, equipeRepository, $timeout, $rootScope) {
+		$scope.pessoa={};
+		$scope.pessoas=[];
+		$scope.createPessoa = function() {
+			var ele = $('#createPessoa');
+			ele.modal('show');
+		}
+		
+		function init() {
+			equipeRepository.open().then(function() {
+				listEquipes();
+			});
+		}
+		init();
+
+		function listEquipes() {
+			var promisse = equipeRepository.getequipes();
+			promisse.then(function(sucess) {
+				$scope.pessoas = sucess;
+				console.log(sucess);
+			}, function(erro) {
+				console.log(erro)
+			});
+		}
+		$scope.salvar = function(pessoa) {
+			pessoa.papel="PESSOAS";
+			var ele = $('#createPessoa').modal('hide');
+			salvar(pessoa);
+		};
+		
+		function salvar(pessoa) {
+			var promisse = equipeRepository.saveequipe(pessoa);
+			promisse.then(function() {
+				listEquipes();
+			}, function(erro) {
+				console.log(erro)
+			});
+		}
+		
+		 function updatePapel(id, papel){
+			 equipeRepository.getById(id).then(function (sucesso) {
+	                var obj = sucesso;
+	                obj.papel= papel;
+	                salvar(obj);
+	            });
+	        }
 		
 		   $scope.allowDrop = function (ev) {
 	            ev.preventDefault();
@@ -27,16 +72,20 @@
 
 	            if (contain(productOwner, ev.target)) {
 	                productOwner.appendChild(document.getElementById(id));
+	                updatePapel(id, "PRODUCTOWNER")
 	            }
 	            //var cont = ;
 	            if (contain(stakeholders, ev.target)) {
 	                stakeholders.appendChild(document.getElementById(id));
+	                updatePapel(id, "STAKEHOLDER");
 	            }
 	            if (contain(equipe, ev.target)) {
 	                equipe.appendChild(document.getElementById(id));
+	                updatePapel(id, "EQUIPE")
 	            }
 	            if (contain(pessoas, ev.target)) {
 	                pessoas.appendChild(document.getElementById(id));
+	                updatePapel(id, "PESSOAS")
 	            }
 	            productOwner.style.border = "none";
 	            stakeholders.style.border = "none";

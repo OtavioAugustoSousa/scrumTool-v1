@@ -19,14 +19,15 @@ public class ProjetoController {
 	
 	@Autowired 
 	ProjetoFacade projetoFacade;
-
+		
 	@RequestMapping(value="", method=RequestMethod.POST,consumes="application/json", produces="application/json")
-	public void adiciona(@RequestBody Projeto projeto) {
-		projetoFacade.save(projeto);
+	public Projeto adiciona(@RequestBody Projeto projeto) {
+		return projetoFacade.save(projeto);
 	}
 
 	@RequestMapping(value="",method=RequestMethod.GET, produces="application/json")
 	public List<Projeto> list() {	
+		
 		return projetoFacade.getProjetos();
 	}
 	
@@ -39,4 +40,4 @@ public class ProjetoController {
 	public void update(@RequestBody Projeto projeto) {
 		projetoFacade.update(projeto);
 	}
-}
+	}

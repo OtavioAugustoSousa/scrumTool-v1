@@ -20,8 +20,8 @@ public class BacklogController {
 	private BacklogFacade backlogFacade;
 
 	@RequestMapping(value="", method=RequestMethod.POST,consumes="application/json", produces="application/json")
-	public void adiciona(@RequestBody Backlog backlog) {
-		backlogFacade.save(backlog);
+	public Backlog adiciona(@RequestBody Backlog backlog) {
+		return backlogFacade.save(backlog);
 	}
 
 	@RequestMapping(value="",method=RequestMethod.GET, produces="application/json")

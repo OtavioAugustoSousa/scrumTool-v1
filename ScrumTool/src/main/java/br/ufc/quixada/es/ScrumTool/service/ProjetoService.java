@@ -14,8 +14,8 @@ public class ProjetoService {
 	@Autowired
 	private ProjetoRepository projetoRepository;
 
-	public void save(Projeto projeto) {
-		projetoRepository.save(projeto);
+	public Projeto save(Projeto projeto) {
+		return projetoRepository.save(projeto);
 	}
 
 	public void update(Projeto projeto) {

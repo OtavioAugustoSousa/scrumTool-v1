@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Backlog {
 	@Id
-	@org.hibernate.annotations.GenericGenerator(name="hilo-strategy", strategy = "hilo")
+	@org.hibernate.annotations.GenericGenerator(name = "hilo-strategy", strategy = "sequence")
 	@GeneratedValue(generator = "hilo-strategy")
 	private Long id;
 	private String como;
@@ -20,11 +20,11 @@ public class Backlog {
 	private Pessoa pessoa;
 	private Integer esforco;
 	@Enumerated
-	private Estado estado;
-	
+	private Estado status;
+
 	@ManyToOne
 	private Projeto projeto;
-	
+
 	public Projeto getProjeto() {
 		return projeto;
 	}
@@ -89,12 +89,11 @@ public class Backlog {
 		this.esforco = esforco;
 	}
 
-	public Estado getEstado() {
-		return estado;
+	public Estado getStatus() {
+		return status;
 	}
 
-	public void setEstado(Estado estado) {
-		this.estado = estado;
+	public void setStatus(Estado status) {
+		this.status = status;
 	}
-
 }

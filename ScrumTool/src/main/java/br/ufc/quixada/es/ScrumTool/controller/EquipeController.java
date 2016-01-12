@@ -20,8 +20,8 @@ public class EquipeController {
 	private EquipeFacade equipeFacade;
 
 	@RequestMapping(value="", method=RequestMethod.POST,consumes="application/json", produces="application/json")
-	public void adiciona(@RequestBody Equipe equipe) {
-		equipeFacade.save(equipe);
+	public Equipe adiciona(@RequestBody Equipe equipe) {
+		return equipeFacade.save(equipe);
 	}
 
 	@RequestMapping(value="",method=RequestMethod.GET, produces="application/json")

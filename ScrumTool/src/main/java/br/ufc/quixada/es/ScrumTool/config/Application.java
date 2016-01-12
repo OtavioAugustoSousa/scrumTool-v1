@@ -7,9 +7,9 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
 @EnableAutoConfiguration
-@ComponentScan("br.ufc.quixada.es")
+@Configuration
+@ComponentScan("br.ufc.quixada.es.ScrumTool")
 public class Application extends SpringBootServletInitializer {
  
     public static void main(String[] args) {
@@ -20,4 +20,14 @@ public class Application extends SpringBootServletInitializer {
     protected final SpringApplicationBuilder configure(final SpringApplicationBuilder application) {
         return application.sources(Application.class);
     }
+    
+    @Bean
+	public ShallowEtagHeaderFilter etagFilter() {
+		return new ShallowEtagHeaderFilter();
+	}
+
+	@Override
+	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+		converters.add(new JsonPatchHttpMessageConverter());
+	}
 }

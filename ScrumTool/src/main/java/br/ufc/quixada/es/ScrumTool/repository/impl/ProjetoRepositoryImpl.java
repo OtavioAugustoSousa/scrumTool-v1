@@ -21,8 +21,9 @@ public class ProjetoRepositoryImpl implements ProjetoRepository {
 	
 	@Override
 	@Transactional
-	public void save(Projeto projeto) {
+	public Projeto save(Projeto projeto) {
 		entityManager.persist(projeto);
+		return projeto;
 	}
 
 	@Override

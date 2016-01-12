@@ -13,8 +13,8 @@ public class BacklogService {
 	@Autowired
 	private BacklogRepository backlogRepository;
 
-	public void save(Backlog backlog) {
-		backlogRepository.save(backlog);
+	public Backlog save(Backlog backlog) {
+		return backlogRepository.save(backlog);
 	}
 
 	public void update(Backlog backlog) {

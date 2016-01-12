@@ -3,9 +3,9 @@
 
 	angular.module('app').controller('projetoController', projetoController);
 	projetoController.$inject = [ '$scope', 'projetoRepository', '$timeout',
-			'$rootScope' ];
+			'$rootScope','factoryProjeto' ];
 
-	function projetoController($scope, projetoRepository, $timeout, $rootScope) {
+	function projetoController($scope, projetoRepository, $timeout, $rootScope, factoryProjeto) {
 		$scope.projeto = {};
 		$scope.projetos = [];
 		
@@ -23,7 +23,14 @@
 		init();
 		$scope.salvar = function(projeto) {
 			var ele = $('#createProjeto').modal('hide');
-			salvar(projeto);
+			if(navigator.onLine){
+            	factoryProjeto.salvar(projeto).then(function(sucesso){
+            		salvar(sucesso.data);
+    			}, function(error){
+    			});	
+            } else {
+            	salvar(projeto);
+            	}
 		};
 
 		function salvar(projeto) {

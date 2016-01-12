@@ -13,7 +13,7 @@ import br.ufc.quixada.es.ScrumTool.entidades.Backlog;
 import br.ufc.quixada.es.ScrumTool.repository.BacklogRepository;
 
 @Repository
-public class BacklogRepositoryImpl implements BacklogRepository{
+public class BacklogRepositoryImpl implements BacklogRepository {
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -21,8 +21,9 @@ public class BacklogRepositoryImpl implements BacklogRepository{
 
 	@Override
 	@Transactional
-	public void save(Backlog backlog) {
+	public Backlog save(Backlog backlog) {
 		entityManager.persist(backlog);
+		return backlog;
 	}
 
 	@Override

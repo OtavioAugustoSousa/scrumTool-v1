@@ -21,8 +21,9 @@ public class PessoaRepositoryImpl implements PessoaRepository {
 
 	@Override
 	@Transactional
-	public void save(Pessoa pessoa) {
+	public Pessoa save(Pessoa pessoa) {
 		entityManager.persist(pessoa);
+		return pessoa;
 	}
 
 	@Override

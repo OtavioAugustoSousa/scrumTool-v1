@@ -40,59 +40,47 @@
 				id="productOwner" ondrop="angular.element(this).scope().drop(event)"
 				ondragover="angular.element(this).scope().allowDrop(event)">
 				<h3>Product owners</h3>
-				<div class="pessoa" draggable="true"
-					ondragstart="angular.element(this).scope().drag(event)" id="1">
-					<img alt="avatar" src="/scrumtool/resources/imagens/user4.png"
-						draggable="false" /> <span>Otávio</span>
+				<div class="pessoa" draggable="true" ng-repeat="pessoa in pessoas | filter:{papel: 'PRODUCTOWNER'}"
+					ondragstart="angular.element(this).scope().drag(event)" id="{{pessoa.id}}">
+					<img alt="avatar" src='/scrumtool/{{pessoa.avatar}}'
+						draggable="false" /> <span>{{pessoa.nome}}</span>
 				</div>
 			</div>
 			<div class="container-equipe col-lg-5" dropzone="move"
 				id="stakeholders" ondrop="angular.element(this).scope().drop(event)"
 				ondragover="angular.element(this).scope().allowDrop(event)">
 				<h3>Stakeholders</h3>
-				<div class="pessoa" draggable="true"
-					ondragstart="angular.element(this).scope().drag(event)" id="2">
-					<img alt="avatar" src="/scrumtool/resources/imagens/user4.png"
-						draggable="false" /> <span>Otávio</span>
-				</div>
-				<div class="pessoa" draggable="true"
-					ondragstart="angular.element(this).scope().drag(event)" id="3">
-					<img alt="avatar" src="/scrumtool/resources/imagens/user2.png"
-						draggable="false" /> <span>Ana</span>
+				<div class="pessoa" draggable="true" ng-repeat="pessoa in pessoas | filter:{papel: 'STAKEHOLDER'}"
+					ondragstart="angular.element(this).scope().drag(event)" id="{{pessoa.id}}">
+					<img alt="avatar" src='/scrumtool/{{pessoa.avatar}}'
+						draggable="false" /> <span>{{pessoa.nome}}</span>
 				</div>
 			</div>
 			<div class="container-equipe col-lg-10" dropzone="move"
 				id="equipe" ondrop="angular.element(this).scope().drop(event)"
 				ondragover="angular.element(this).scope().allowDrop(event)">
 				<h3>Equipe</h3>
-				<div class="pessoa" draggable="true"
-					ondragstart="angular.element(this).scope().drag(event)" id="4">
-					<img alt="avatar" src="/scrumtool/resources/imagens/user2.png"
-						draggable="false" /> <span>Ana</span>
+				<div class="pessoa" draggable="true" ng-repeat="pessoa in pessoas | filter:{papel: 'EQUIPE'}"
+					ondragstart="angular.element(this).scope().drag(event)" id="{{pessoa.id}}">
+					<img alt="avatar" src='/scrumtool/{{pessoa.avatar}}'
+						draggable="false" /> <span>{{pessoa.nome}}</span>
 				</div>
-				<div class="pessoa" draggable="true"
-					ondragstart="angular.element(this).scope().drag(event)" id="5">
-					<img alt="avatar" src="/scrumtool/resources/imagens/user3.png"
-						draggable="false" /> <span>Otávio</span>
-				</div>
-				<div class="pessoa" draggable="true"
-					ondragstart="angular.element(this).scope().drag(event)" id="6">
-					<img alt="avatar" src="/scrumtool/resources/imagens/user4.png"
-						draggable="false" /> <span>Otávio</span>
-				</div>
+				
 			</div>
 		</div>
 		<div class="container-pessoas col-lg-4" dropzone="move"
 				id="pessoas" ondrop="angular.element(this).scope().drop(event)"
 				ondragover="angular.element(this).scope().allowDrop(event)">
+			<button class="botao-add-pessoa btn btn-default" ng-click="createPessoa()">Adcicionar novo membro</button>
 			<h3>Pessoas</h3>
-			<div class="pessoa" draggable="true"
-				ondragstart="angular.element(this).scope().drag(event)" id="7">
-				<img alt="avatar" src="/scrumtool/resources/imagens/user1.png"
-					draggable="false" /> <span>Otávio</span>
+			<div class="pessoa" draggable="true" ng-repeat="pessoa in pessoas | filter:{papel: 'PESSOAS'}"
+				ondragstart="angular.element(this).scope().drag(event)" id="{{pessoa.id}}">
+				<img alt="avatar" src='/scrumtool/{{pessoa.avatar}}'
+						draggable="false" /> <span>{{pessoa.nome}}</span>
 			</div>
 		</div>
 	</div>
+	<ng-include src="'/scrumtool/resources/partials/formCreatePessoa.html'"></ng-include>
 	<ng-include src="'/scrumtool/resources/partials/footer.html'"></ng-include>
 </body>
 </html>

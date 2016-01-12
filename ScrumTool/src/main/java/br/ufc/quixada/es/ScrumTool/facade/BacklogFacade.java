@@ -14,8 +14,8 @@ public class BacklogFacade {
 	@Autowired
 	private BacklogService backlogService;
 
-	public void save(Backlog backlog) {
-		backlogService.save(backlog);
+	public Backlog save(Backlog backlog) {
+		return backlogService.save(backlog);
 	}
 
 	public void update(Backlog backlog) {

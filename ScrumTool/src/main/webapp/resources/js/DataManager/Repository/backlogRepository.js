@@ -7,14 +7,14 @@
 
         var open = function () {
             var deferred = $q.defer();
-            var version = 7;
+            var version = 10;
             var request = indexedDB.open("scrumToolDB", version);
             request.onupgradeneeded = function (e) {
                 db = e.target.result;
                 e.target.transaction.onerror = indexedDB.onerror;
+                db.deleteObjectStore("backlog");
                 db.createObjectStore("backlog", {
-                    keyPath: "id",
-                    autoIncrement: true
+                    keyPath: "id"
                 });
             }
             request.onsuccess = function (e) {

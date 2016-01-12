@@ -7,7 +7,7 @@ import javax.persistence.Id;
 @Entity
 public class Pessoa {
 	@Id
-	@org.hibernate.annotations.GenericGenerator(name="hilo-strategy", strategy = "hilo")
+	@org.hibernate.annotations.GenericGenerator(name="hilo-strategy", strategy = "sequence")
 	@GeneratedValue(generator = "hilo-strategy")
 	private Long id;
 	private String nome;

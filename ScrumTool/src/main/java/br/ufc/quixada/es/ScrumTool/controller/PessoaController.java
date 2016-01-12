@@ -20,8 +20,8 @@ public class PessoaController {
 	private PessoaFacade pessoaFacade;
 
 	@RequestMapping(value="", method=RequestMethod.POST,consumes="application/json", produces="application/json")
-	public void adiciona(@RequestBody Pessoa pessoa) {
-		pessoaFacade.save(pessoa);
+	public Pessoa adiciona(@RequestBody Pessoa pessoa) {
+		return pessoaFacade.save(pessoa);
 	}
 
 	@RequestMapping(value="",method=RequestMethod.GET, produces="application/json")

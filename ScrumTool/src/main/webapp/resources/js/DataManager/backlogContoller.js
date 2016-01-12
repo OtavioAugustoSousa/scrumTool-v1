@@ -2,10 +2,10 @@
     'use strict';
 
     angular.module('app').controller('backlogController', backlogController);
-    backlogController.$inject = ['$scope', 'backlogRepository', '$timeout', '$rootScope'];
+    backlogController.$inject = ['$scope', 'backlogRepository', '$timeout', '$rootScope', 'factoryBacklog', 'syncRepository'];
 
-    //EstruturaBase para um controller
-    function backlogController($scope, backlogRepository, $timeout, $rootScope) {
+    // EstruturaBase para um controller
+    function backlogController($scope, backlogRepository, $timeout, $rootScope, factoryBacklog, syncRepository) {
         $scope.itemBacklog = {};
         $scope.nome = "";
         $scope.list_Todo = [];
@@ -16,8 +16,12 @@
             backlogRepository.open().then(function () {
                 listAll();
             });
+        	syncRepository.open().then(function () {
+              	sync();
+              });
+            
         }
-
+        
         init();
 
         $scope.createItem = function (status) {
@@ -27,21 +31,27 @@
         };
 
         function listToDo() {
-            backlogRepository.getBacklogByStatus("todo")
+            backlogRepository.getBacklogByStatus("TODO")
                 .then(function (sucesso) {
                     $scope.list_Todo = sucesso;
+                    angular.forEach( $scope.list_Todo, function(value, key){
+                    	 if(navigator.onLine){
+                    		 // sync(value);
+                    	 }
                 });
-        };
+  
+        });
+            }
 
         function listDoing() {
-            backlogRepository.getBacklogByStatus("doing")
+            backlogRepository.getBacklogByStatus("DOING")
                 .then(function (sucesso) {
                     $scope.list_Doing = sucesso;
                 });
         };
 
         function listDones() {
-            backlogRepository.getBacklogByStatus("done")
+            backlogRepository.getBacklogByStatus("DONE")
                 .then(function (sucesso) {
                     $scope.list_Done = sucesso;
                 });
@@ -56,19 +66,45 @@
             var ele = $('#createItem').modal('hide');
             item.status = $scope.status;
             salvar(item);
+            }
+            
             $scope.itemBacklog ={};
-        };
-        function salvar(item){
-            var promisse = backlogRepository.saveBacklog(item);
-            promisse.then(
-                function () {
-                    listAll();
-                },
-                function (erro) {
-                    console.log(erro)
-                });
-        }
-
+        
+        function salvar(item){ 
+        	 var promisse;
+        	 if(navigator.onLine){
+             	factoryBacklog.salvar(item).then(function(sucesso){
+             		 promisse = backlogRepository.saveBacklog(sucesso.data);
+             		 promisse.then(
+                             function () {
+                                 listAll();
+                             },
+                             function (erro) {
+                                 console.log(erro)
+                             });
+                     
+     			}, function(error){
+     			});	
+             }else{
+            	item.id = Date.now();
+             	/* Criacao do objeto de sync */
+             	var syncObject={};
+             	syncObject.id= item.id;
+             	syncObject.value= item;
+             	syncObject.operacao="save";
+             	syncObject.table="backlog";
+             	syncRepository.savesync(syncObject);
+             	
+             	promisse = backlogRepository.saveBacklog(item);
+             	promisse.then(
+                         function () {
+                             listAll();
+                         },
+                         function (erro) {
+                             console.log(erro)
+                         });
+             	}
+         }
         $scope.allowDrop = function (ev) {
             ev.preventDefault();
             ev.currentTarget.style.border = "dashed thin";
@@ -83,7 +119,12 @@
             backlogRepository.getById(id).then(function (sucesso) {
                 var obj = sucesso;
                 obj.status= status;
-                salvar(obj);
+                $scope.update(obj);
+                if(navigator.onLine){
+                   	factoryBacklog.update(obj).then(function(sucesso){
+           			}, function(error){
+           			});	
+                   	}
             });
         }
         $scope.drop = function (ev) {
@@ -96,16 +137,16 @@
 
             if (contain(todo, ev.target)) {
                 todo.appendChild(document.getElementById(id));
-                updateStatus(id,"todo");
+                updateStatus(id,"TODO");
             }
-            //var cont = ;
+            // var cont = ;
             if (contain(doing, ev.target)) {
                 doing.appendChild(document.getElementById(id));
-                updateStatus(id,"doing");
+                updateStatus(id,"DOING");
             }
             if (contain(done, ev.target)) {
                 done.appendChild(document.getElementById(id));
-                updateStatus(id,"done");
+                updateStatus(id,"DONE");
             }
             todo.style.border = "none";
             doing.style.border = "none";
@@ -139,22 +180,98 @@
         $scope.update= function(item){
       	  var ele = $('#updateItem');
             ele.modal('hide');
-           salvar(item); 
+            var promisse = backlogRepository.saveBacklog(item);
+    		 promisse.then(
+                    function () {
+                        listAll();
+                    },
+                    function (erro) {
+                        console.log(erro)
+                    });
+           if(navigator.onLine){
+           	factoryBacklog.update(item).then(function(sucesso){
+           		console.log(sucesso);
+   			}, function(error){
+   			});	
+           
+           }else{
+        	   var syncObject={};
+            	syncObject.id= item.id;
+            	syncObject.value= item;
+            	syncObject.operacao="update";
+            	syncObject.table="backlog";
+            	syncRepository.savesync(syncObject);
+           }
            $scope.itemBacklog ={};
       }
       
       $scope.delete = function(item) {
-    	  var promisse = backlogRepository.removeBacklog(item);
-          promisse.then(
-              function () {
-                  listAll();
-              },
-              function (erro) {
-                  console.log(erro)
-              });
+    	  if(navigator.onLine){
+             	factoryBacklog.remover(item.id).then(function(sucesso){
+             		  remove(item);
+             		  
+     			}, function(error){});	
+           }else{
+	        	var syncObject={};
+	           	syncObject.id= item.id;
+	           	syncObject.value= item;
+	           	syncObject.operacao="remove";
+	           	syncObject.table="backlog";
+	           	syncRepository.savesync(syncObject);
+	           	remove(item);
+           	
+           }
 	}
-        
+      
+      function remove(item){
+    	var promisse = backlogRepository.removeBacklog(item);
+  		 promisse.then(
+                  function () {
+                      listAll();
+                  },
+                  function (erro) {
+                      console.log(erro)
+                  });
+      }
+      
+      function sync() {
+    	 syncRepository.getByTable("backlog").then(function(response){
+    		 console.log("sync");
+    		 if(navigator.onLine){
+    		 angular.forEach(response,function(value,key){
+    			switch(value.operacao){
+    				case "save":
+		    			var item = value.value;
+		    			 remove(item);
+		    			 item.id="";
+		       			 console.log(value.value);
+		       			 syncRepository.removesync(value);
+		       			 salvar(item);
+		       			 break;
+    				case "remove":
+    					  $scope.delete(value.value);
+    					  syncRepository.removesync(value);
+    					  break;
+    				case "update":
+  					  $scope.update(value.value);
+  					  syncRepository.removesync(value);
+  					  break;
+       			 }
+    		});
+    		 }
+    	 }, function(erro) {
+			console.log(erro);
+		});
+      	}
+      
+      window.addEventListener("online", function (e) {
+      	syncRepository.open().then(function () {
+          	sync();
+          });
+      }, true);   
+      
     }
+  
 })
 (window.angular);
 

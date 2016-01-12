@@ -14,8 +14,8 @@ public class PessoaFacade {
 	@Autowired
 	private PessoaService pessoaService;
 
-	public void save(Pessoa pessoa) {
-		pessoaService.save(pessoa);
+	public Pessoa save(Pessoa pessoa) {
+		return pessoaService.save(pessoa);
 	}
 
 	public void update(Pessoa pessoa) {

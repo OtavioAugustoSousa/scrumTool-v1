@@ -24,6 +24,8 @@
 <script src="/scrumtool/resources/js/AppManager/controller.js"></script>
 <script src="/scrumtool/resources/js/DataManager/dataController.js"></script>
 <script src="/scrumtool/resources/js/DataManager/backlogContoller.js"></script>
+<script src="/scrumtool/resources/js/ComunicationControl/backlogComunicationService.js"></script>
+<script src="/scrumtool/resources/js/DataManager/Repository/syncRepository.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Roboto"
 	rel="stylesheet" type="text/css" />
 
@@ -39,7 +41,7 @@
 				ondragover="angular.element(this).scope().allowDrop(event)">
 				<h3 class="text-center title todo">
 					TODO <span class="glyphicon glyphicon-plus"
-						data-ng-click="createItem('todo')"></span>
+						data-ng-click="createItem('TODO')"></span>
 				</h3>
 
 				<div class="estoria todo" draggable="true" id="{{row.id}}"
@@ -77,7 +79,7 @@
 				ondragover="angular.element(this).scope().allowDrop(event)">
 				<h3 class="text-center title doing">
 					DOING <span class="glyphicon glyphicon-plus"
-						ng-click="createItem('doing')"></span>
+						ng-click="createItem('DOING')"></span>
 				</h3>
 				<!--Estoria BEGIN-->
 				<div class="estoria doing" draggable="true" id="{{row.id}}doing"
@@ -115,7 +117,7 @@
 				<!--Estoria BEGIN-->
 				<h3 class="text-center title done">
 					DONE <span class="glyphicon glyphicon-plus"
-						ng-click="createItem('done')"></span>
+						ng-click="createItem('DONE')"></span>
 				</h3>
 
 				<div class="estoria done" draggable="true" id="{{row.id}}done"

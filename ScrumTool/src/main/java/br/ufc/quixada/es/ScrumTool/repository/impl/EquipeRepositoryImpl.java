@@ -21,8 +21,9 @@ public class EquipeRepositoryImpl implements EquipeRepository {
 
 	@Override
 	@Transactional
-	public void save(Equipe equipe) {
+	public Equipe save(Equipe equipe) {
 		entityManager.persist(equipe);
+		return equipe;
 	}
 
 	@Override

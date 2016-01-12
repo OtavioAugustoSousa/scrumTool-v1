@@ -14,8 +14,8 @@ public class ProjetoFacade {
 	@Autowired
 	private ProjetoService projetoService;
 
-	public void save(Projeto projeto) {
-		projetoService.save(projeto);
+	public Projeto save(Projeto projeto) {
+		return projetoService.save(projeto);
 	}
 
 	public void update(Projeto projeto) {
